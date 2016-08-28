@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="recordBean" class="pl.writeonly.babel.beans.RecordBean">
+		<constructor-arg ref="daoImpl" />
+	</bean>
+	<bean id="relationBean" class="pl.writeonly.babel.beans.RelationBean">
+		<constructor-arg ref="daoImpl" />
+	</bean>
+	<bean id="userBean" class="pl.writeonly.babel.beans.UserBean">
+		<constructor-arg ref="daoImpl" />
+	</bean>
+	<bean id="wordBean" class="pl.writeonly.babel.beans.WordBean">
+		<constructor-arg ref="daoImpl" />
+	</bean>
+	<bean id="valueBean" class="pl.writeonly.babel.beans.ValueBean">
+		<constructor-arg ref="daoImpl" />
+	</bean>
+	<bean id="sideBean" class="pl.writeonly.babel.beans.SideBean">
+		<constructor-arg ref="daoImpl" />
+	</bean>
+
+
+</beans>

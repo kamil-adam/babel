@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pl.writeonly.babel</groupId>
+	<artifactId>apps</artifactId>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>pl.writeonly</groupId>
+		<artifactId>babel</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<properties>
+		<org.apache.derby.version>10.9.1.0</org.apache.derby.version>
+		<org.datanucleus.version>3.1.1</org.datanucleus.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>pl.writeonly</groupId>
+			<artifactId>scala</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>pl.writeonly.babel</groupId>
+			<artifactId>entities</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>pl.writeonly.babel</groupId>
+			<artifactId>daos</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>pl.writeonly.babel</groupId>
+			<artifactId>components</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
+
+
+	</dependencies>
+</project>

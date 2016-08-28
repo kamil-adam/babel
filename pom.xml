@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>pl.writeonly</groupId>
+	<artifactId>babel</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>entities</module>
+		<module>daos</module>
+		<module>components</module>
+		<module>apps</module>
+		<module>xui</module>
+	</modules>
+
+	<properties>
+<!-- 		<scala-version>2.10.0-M7</scala-version> -->
+		<scala-version>2.11.8</scala-version>
+		<tycho-version>0.12.0</tycho-version>
+		<maven-scala-plugin-version>2.15.2</maven-scala-plugin-version>
+		<encoding>UTF-8</encoding>
+	</properties>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<repositories>
+		<repository>
+			<id>swt-repo</id>
+<!-- 			<url>https://swt-repo.googlecode.com/svn/repo/</url> -->
+			<url>https://code.google.com/p/swt-repo/</url>
+		</repository>
+		<repository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</repository>
+
+		<repository>
+			<id>helios</id>
+			<name>Eclipse Helios p2 repository</name>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/helios/</url>
+		</repository>
+		<repository>
+			<id>eclipse-indigo</id>
+			<url>http://download.eclipse.org/releases/indigo</url>
+			<layout>p2</layout>
+		</repository>
+
+		<repository>
+			<id>scala-tools.release</id>
+			<name>Scala Tools maven release repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>scala-tools.snapshot</id>
+			<name>Scala Tools maven snapshot repository</name>
+			<url>http://scala-tools.org/repo-snapshots</url>
+			<snapshots>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>scala-osgi</id>
+			<name>Scala OSGi toolchain p2 repository</name>
+			<layout>p2</layout>
+			<url>http://download.scala-ide.org/scala-eclipse-toolchain-osgi-${scala-version}</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>scala-tools.org</id>
+			<name>Scala-tools Maven2 Repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>org.eclipse.tycho</id>
+			<name>Tycho snapshot repository</name>
+			<url>https://repository.sonatype.org/content/repositories/snapshots</url>
+			<snapshots>
+				<updatePolicy>daily</updatePolicy>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>scala-tools.release</id>
+			<name>Scala Tools maven release repository</name>
+			<url>http://scala-tools.org/repo-releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>scala-tools.snapshot</id>
+			<name>Scala Tools maven snapshot repository</name>
+			<url>http://scala-tools.org/repo-snapshots</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<profiles>
+		<profile>
+			<id>scala-2.8.0</id>
+			<activation>
+				<property>
+					<name>scala-version</name>
+					<value>2.8.0</value>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>scala-refactoring-2.8.0.final</id>
+					<name>Scala Refactoring Scala 2.8.0.final p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-refactoring-2.8.0.final</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>scalariform-2.8.0.final</id>
+					<name>Scalariform Scala 2.8.0.final p2 repo</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scalariform-2.8.0.final</url>
+				</repository>
+				<repository>
+					<id>scala-toolchain-2.8.0.final</id>
+					<name>Scala Toolchain 2.8.0.final p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-eclipse-toolchain-osgi-2.8.0.final</url>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>scala-2.8.1</id>
+			<activation>
+				<property>
+					<name>scala-version</name>
+					<value>2.8.1</value>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>scala-refactoring-2.8.1.final</id>
+					<name>Scala Refactoring Scala 2.8.1.final p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-refactoring-2.8.1.final</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>scalariform-2.8.1.final</id>
+					<name>Scalariform Scala 2.8.1.final p2 repo</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scalariform-2.8.1.final</url>
+				</repository>
+				<repository>
+					<id>scala-toolchain-2.8.1.final</id>
+					<name>Scala Toolchain 2.8.1.final p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-eclipse-toolchain-osgi-2.8.1.final</url>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>scala-2.8.1.RC2</id>
+			<activation>
+				<property>
+					<name>scala-version</name>
+					<value>2.8.1.RC2</value>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>scala-refactoring-2.8.1.RC2</id>
+					<name>Scala Refactoring Scala 2.8.1.RC2 p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-refactoring-2.8.1.RC2</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>scalariform-2.8.1.RC2</id>
+					<name>Scalariform Scala 2.8.1.RC2 p2 repo</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scalariform-2.8.1.RC2</url>
+				</repository>
+				<repository>
+					<id>scala-toolchain-2.8.1.RC2</id>
+					<name>Scala Toolchain 2.8.1.RC2 p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-eclipse-toolchain-osgi-2.8.1.RC2</url>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>scala-2.8.0-maintenance</id>
+			<repositories>
+				<repository>
+					<id>scala-refactoring-2.8.0.final</id>
+					<name>Scala Refactoring Scala 2.8.0.final p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-refactoring-2.8.0.final</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>scalariform-2.8.0.final</id>
+					<name>Scalariform Scala 2.8.0.final p2 repo</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scalariform-2.8.0.final</url>
+				</repository>
+				<repository>
+					<id>scala-toolchain-2.8.0.final-maintenance</id>
+					<name>Scala Toolchain 2.8.0.final-maintenance p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-eclipse-toolchain-osgi-2.8.0.final-maintenance</url>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>scala-2.8.x</id>
+			<activation>
+				<property>
+					<name>scala-version</name>
+					<value>2.8.1-SNAPSHOT</value>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>scala-refactoring-2.8.1.alpha</id>
+					<name>Scala Refactoring Scala 2.8.1.alpha p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-refactoring-2.8.1.alpha</url>
+				</repository>
+				<repository>
+					<id>scalariform-2.8.1.alpha</id>
+					<name>Scalariform Scala 2.8.1.alpha p2 repo</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scalariform-2.8.1.alpha</url>
+				</repository>
+				<repository>
+					<id>scala-toolchain-2.8.1.alpha</id>
+					<name>Scala Toolchain 2.8.1.alpha p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-eclipse-toolchain-osgi-2.8.1.alpha</url>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>scala-2.9.0-1</id>
+			<activation>
+				<property>
+					<name>scala-version</name>
+					<value>2.9.0-1</value>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>Scala-IDE-2.9.0-1</id>
+					<name>Scala IDE 2.9.0-1 p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/releases-29/2.0.0-beta</url>
+				</repository>
+				<repository>
+					<id>scala-refactoring-2.9.0-1</id>
+					<name>Scala Refactoring Scala 2.9.0-1 p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-refactoring-2.9.0-1</url>
+				</repository>
+				<repository>
+					<id>scalariform-2.9.0-1</id>
+					<name>Scalariform Scala 2.9.0-1 p2 repo</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scalariform-2.9.0-1</url>
+				</repository>
+				<repository>
+					<id>scala-toolchain-2.9.0-1</id>
+					<name>Scala Toolchain 2.9.0-1 p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-eclipse-toolchain-osgi-2.9.0-1</url>
+				</repository>
+			</repositories>
+		</profile>
+		<profile>
+			<id>scala-trunk</id>
+			<activation>
+				<property>
+					<name>scala-version</name>
+					<value>2.9.0-SNAPSHOT</value>
+				</property>
+			</activation>
+			<repositories>
+				<repository>
+					<id>scala-refactoring-trunk</id>
+					<name>Scala Refactoring Scala trunk p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-refactoring-trunk</url>
+				</repository>
+				<repository>
+					<id>scalariform-trunk</id>
+					<name>Scalariform Scala trunk p2 repo</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scalariform-trunk</url>
+				</repository>
+				<repository>
+					<id>scala-toolchain-trunk</id>
+					<name>Scala Toolchain trunk p2 repository</name>
+					<layout>p2</layout>
+					<url>http://download.scala-ide.org/scala-eclipse-toolchain-osgi-trunk</url>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>compile</id>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<phase>compile</phase>
+					</execution>
+<!-- 					<execution> -->
+<!-- 						<id>test-compile</id> -->
+<!-- 						<goals> -->
+<!-- 							<goal>testCompile</goal> -->
+<!-- 						</goals> -->
+<!-- 						<phase>test-compile</phase> -->
+<!-- 					</execution> -->
+					<execution>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<!--<extensions>true</extensions> -->
+				<configuration>
+					<compilerId>groovy-eclipse-compiler</compilerId>
+					<!-- set verbose to be true if you want lots of uninteresting messages -->
+					<!-- <verbose>true</verbose> -->
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.codehaus.groovy</groupId>
+						<artifactId>groovy-eclipse-compiler</artifactId>
+						<version>2.7.0-01</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/groovy</source>
+							</sources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>add-test-source</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>add-test-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/test/groovy</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.5</source>
+					<target>1.5</target>
+					<compilerId>groovy-eclipse-compiler</compilerId>
+					<verbose>true</verbose>
+					<!-- <compilerArguments> -->
+					<!-- <javaAgentClass>lombok.core.Agent</javaAgentClass> -->
+					<!-- </compilerArguments> -->
+					<fork>true</fork>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.scala-tools</groupId>
+				<artifactId>maven-scala-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>add-source</goal>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+						<configuration>
+						<mainClass>pl.writeonly.babel.swt.MainLoop</mainClass>
+						</configuration>
+					</execution>
+				</executions>
+				<version>${maven-scala-plugin-version}</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<resolver>p2</resolver>
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<!-- For some reason, adding this breaks the build? <environment> <os>macosx</os> 
+							<ws>carbon</ws> <arch>x86</arch> </environment> <environment> <os>macosx</os> 
+							<ws>cocoa</ws> <arch>x86_64</arch> </environment> -->
+					</environments>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-eclipse-batch</artifactId>
+			<version>1.8.6-01</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>1.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ivy</groupId>
+			<artifactId>ivy</artifactId>
+			<version>2.3.0-rc1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>0.10.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>${scala-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.scalatest</groupId> -->
+		<!-- <artifactId>scalatest_2.10.0-M7</artifactId> -->
+		<!-- <version>2.0.M4-2.10.0-M7-B1</version> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>org.scalatest</groupId>
+			<artifactId>scalatest_2.9.2</artifactId>
+			<version>1.8</version>
+		</dependency>
+		<dependency>
+			<groupId>pl.writeonly</groupId>
+			<artifactId>scala</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+	</dependencies>
+</project>
